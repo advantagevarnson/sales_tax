@@ -25,7 +25,7 @@ module CSVHelper
         csv << line
       end
 
-      csv << ["Sales Taxes: #{sprintf("%.2f", sales_tax_total)}"]
+      csv << ["Sales Taxes: #{sprintf('%.2f', sales_tax_total)}"]
       csv << ["Total: #{total.round(2)}"]
     end
     csv_string

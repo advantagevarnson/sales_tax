@@ -10,15 +10,15 @@ response = STDIN.gets.chomp
 case response
 when '1'
   rows = CSVHelper.ingest_csv('src/inputs/input1.csv')
-  array = SalesTaxHelper.calculate_tax(rows)
+  array = SalesTaxHelper.tax_totals(rows)
   puts CSVHelper.output_data(array)
 when '2'
   rows = CSVHelper.ingest_csv("src/inputs/input2.csv")
-  array = SalesTaxHelper.calculate_tax(rows)
+  array = SalesTaxHelper.tax_totals(rows)
   puts CSVHelper.output_data(array)
 when '3'
   rows = CSVHelper.ingest_csv('src/inputs/input3.csv')
-  array = SalesTaxHelper.calculate_tax(rows)
+  array = SalesTaxHelper.tax_totals(rows)
   puts CSVHelper.output_data(array)
 else
   puts 'You have selected incorrectly, goodbye.'

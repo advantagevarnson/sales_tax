@@ -5,8 +5,8 @@ require_relative '../../src/lib/helpers/sales_tax_helper'
 
 describe SalesTaxHelper do
 
-  describe '#calculate_tax' do
-    let(:calculate_tax) { described_class.calculate_tax(rows) }
+  describe '#tax_totals' do
+    let(:tax_totals) { described_class.tax_totals(rows) }
     let(:rows) do
       [
         {"Quantity"=>"1",
@@ -26,11 +26,11 @@ describe SalesTaxHelper do
 
     context 'with quantities larger than 0' do
       it 'will calculate the tax for all rows' do
-        expect(calculate_tax).to eq(expected_output)
+        expect(tax_totals).to eq(expected_output)
       end
 
       it 'will return the same number of rows given' do
-        expect(calculate_tax.each_slice(4).to_a.length).to eq(rows.length)
+        expect(tax_totals.each_slice(4).to_a.length).to eq(rows.length)
       end
     end
 
@@ -53,11 +53,11 @@ describe SalesTaxHelper do
       end
 
       it 'will calculate the tax for all rows except the 0 quantity row' do
-        expect(calculate_tax).to eq(expected_output)
+        expect(tax_totals).to eq(expected_output)
       end
 
       it 'will return the correct number of rows' do
-        expect(calculate_tax.each_slice(4).to_a.length).to eq(rows.length - 1)
+        expect(tax_totals.each_slice(4).to_a.length).to eq(rows.length - 1)
       end
     end
   end
